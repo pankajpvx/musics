@@ -1,0 +1,126 @@
+.music-player-container {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: 60%;
+  padding: 20px;
+  bottom: 10px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.common-width {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.controls {
+  display: flex;
+  /* margin-bottom: 10px; */
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.left-box {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 10px;
+  width: 60%;
+}
+
+.right-box {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 10px;
+}
+
+.control-btn {
+  background-color: transparent;
+  border: none;
+  color: #ffffff;
+  /* margin: 0 15px; */
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.control-btn:hover {
+  color: #1da1b9;
+}
+
+.play-pause {
+  /* font-size: 48px; */
+}
+
+.svg-invert {
+  filter: invert(100%);
+}
+
+.volume-btn {
+  /* justify-content: flex-end; */
+}
+
+.volume-progress-bar {
+  width: 60%;
+  border-radius: 5px;
+}
+
+.volume {
+  background-color: #1da1b9;
+  width: 40%;
+  height: 100%;
+  border-radius: 5px;
+  position: absolute;
+  transition: width 0.3s ease;
+}
+
+.progress {
+  outline: none;
+  width: 100%;
+  transition: width 0.3s ease;
+}
+
+.timers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 5px;
+}
+
+.song-name-box {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 80%;
+}
+
+.song-name {
+  display: inline-block;
+  font-size: 1.2rem;
+  padding-left: 100%; /* Start from the right side */
+  animation: scroll-left 10s linear infinite; /* Adjust duration as needed */
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.heart-icon-svg {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  transition: transform 300ms ease-in-out;
+}
+
+.heart-icon-svg:hover {
+  transform: translateY(-50%) scale(1.1);
+}

@@ -1,0 +1,74 @@
+.song-list-box {
+  background-image: url("../assets/trumphet.jpg");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.nav-header {
+  /* background-color: rgb(255, 255, 255); */
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-header::before {
+  content: "";
+  padding: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../assets/trumphet.jpg");
+  opacity: 0.6;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.logo-box {
+  font-size: 2rem;
+  font-weight: bold;
+  background: linear-gradient(
+    45deg,
+    #ff6b6b,
+    rgb(6, 6, 233),
+    violet,
+    #f8c600,
+    rgb(0, 255, 0)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-lists {
+  display: flex;
+  gap: 20px;
+  /* color: var(--navbar-bg); */
+  /* color: white; */
+  /* color: rgba(255, 255, 255, 0.63); */
+  color: var(--text-color);
+  /* color: var(--Primary-bg-color); */
+  cursor: pointer;
+}
+
+.nav-lists li {
+  list-style: none;
+  padding: 10px;
+  transition: all 300ms ease-out;
+}
+
+.nav-lists li a {
+  all: unset;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+.nav-lists li:hover {
+  color: var(--text-hover-color);
+  cursor: pointer;
+}

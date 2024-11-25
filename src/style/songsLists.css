@@ -1,0 +1,144 @@
+.aligned-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.set-position {
+  position: relative;
+  z-index: 1;
+}
+
+.heading-style {
+  text-align: center;
+  color: whitesmoke;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.search-Wrap {
+  width: 70%;
+  display: flex;
+  gap: 20px;
+}
+
+.search-input-box {
+  width: 60%;
+  border-bottom: 1px solid var(--off-text-color);
+  padding: 10px 20px;
+  transition: all 300ms ease-out;
+}
+
+.search-input-box:hover {
+  border-color: rgba(255, 255, 255, 1);
+}
+
+.search-input {
+  all: unset;
+  width: 100%;
+  color: white;
+}
+
+.search-input::placeholder {
+  color: var(--text-color);
+}
+
+.search-btn {
+  all: unset;
+  border: 1px solid var(--off-text-color);
+  color: white;
+  padding: 5px 20px;
+  font-weight: var(--primary-btn-font);
+  border-radius: var(--primary-btn-border-radius);
+  transition: all 300ms ease-out;
+}
+
+.search-btn:hover {
+  cursor: pointer;
+  border-color: var(--text-hover-color);
+}
+
+.songs-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-inline: 20px;
+}
+
+.song-card {
+  width: calc(25% - 15px);
+  /* height: 200px; */
+  /* background-color: var(--card-bg); */
+  border-radius: 5px;
+  padding: 20px;
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 20px 2px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s linear;
+  animation-name: fadeIn;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.selected {
+  box-shadow: 0 0 5px 2px white;
+}
+
+.album {
+  margin-top: 2px;
+  color: rgb(7, 185, 255);
+  font-size: 0.9rem;
+}
+
+.song-card:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  box-shadow: 0 0 5px 2px white;
+}
+
+.selected-song-playing {
+  font-size: 1.7rem;
+  letter-spacing: 0.1rem;
+  margin-top: 5px;
+  font-weight: bold;
+  background: linear-gradient(
+    45deg,
+    #ff6b6b,
+    #ff1493,
+    #1e90ff,
+    #6a0dad,
+    #fff,
+    #32cd32,
+    #ffd700,
+    #ff4500,
+    #00ffff,
+    #f8c600,
+    #00d9ff
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300%;
+  animation: gradient-move 4s linear infinite;
+}
+
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}

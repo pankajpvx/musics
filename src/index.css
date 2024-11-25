@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: rgba(79, 99, 103);
+  --Primary-bg-color: rgba(238, 245, 219);
+  --text-hover-color: white;
+  --text-color: rgba(255, 255, 255, 0.63);
+  --off-text-color: rgba(255, 255, 255, 0.274);
+  --primary-btn-font: 400;
+  --primary-btn-border-radius: 2px;
+  --primary-border-color: rgba(0, 0, 0, 0.2);
+  --card-bg: rgba(20, 20, 20);
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+}
+
+#root {
+  overflow: auto;
+  color: var(--Primary-bg-color);
+}
+
+.spacer {
+  margin-block: 20px;
+}
+
+.container {
+  padding: 20px 40px;
+}
+
+.home {
+  min-height: 100dvh;
+  background-color: black;
+}
