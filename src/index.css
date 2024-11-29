@@ -23,12 +23,15 @@ body {
 }
 
 #root {
-  overflow: auto;
   color: var(--Primary-bg-color);
 }
 
 .spacer {
   margin-block: 20px;
+}
+
+.capitalise {
+  text-transform: capitalize;
 }
 
 .container {

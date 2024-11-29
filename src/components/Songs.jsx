@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
-import Spacer from "./Spacer";
+import React from "react";
+import { getText } from "../Utility";
+import { useButtonDebounce } from "../hooks/useButtonDebounce";
 
 const Songs = ({ songs, saveTrack, track }) => {
+  const { onDebounce } = useButtonDebounce();
+
   const setStyle = (id, className, defaultStyle = "") => {
     return track && track.id === id ? className : defaultStyle;
   };
@@ -22,11 +25,15 @@ const Songs = ({ songs, saveTrack, track }) => {
     return bg;
   };
 
+  const onSongClick = (song) => {
+    onDebounce(() => saveTrack(song));
+  };
+
   return (
     <div className="aligned-container songs-container">
       {songs?.map((song, i) => (
         <div
-          onClick={() => saveTrack({ ...song, index: i })}
+          onClick={() => onSongClick({ ...song, index: i })}
           key={song.id + i}
           className={`song-card ${setStyle(song.id, "selected")}`}
           style={{
@@ -34,8 +41,8 @@ const Songs = ({ songs, saveTrack, track }) => {
           }}
         >
           {PlayingTrackStyle(song.id)}
-          <h3 className="">{song.name}</h3>
-          <div className="album">{song.album.name}</div>
+          <h3 className="card-song-name capitalise">{getText(song.name)}</h3>
+          <div className="album capitalise">{getText(song.album.name)}</div>
         </div>
       ))}
     </div>

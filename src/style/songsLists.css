@@ -97,6 +97,10 @@
   box-shadow: 0 0 5px 2px white;
 }
 
+.card-song-name {
+  line-break: anywhere;
+}
+
 .album {
   margin-top: 2px;
   color: rgb(7, 185, 255);
