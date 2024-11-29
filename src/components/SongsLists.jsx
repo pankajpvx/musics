@@ -7,42 +7,37 @@ import { Strings } from "../Strings";
 import Loader from "../commonComponents/Loader";
 import { usePagination } from "../hooks/usePagination";
 import MusicPlayer from "./MusicPlayer";
-import { useRef, useState } from "react";
+import { useState } from "react";
+import { useButtonDebounce } from "../hooks/useButtonDebounce";
 
 const SongsLists = (props) => {
   const [songs, loader, onSerchQuery] = usePagination(props.songs, getSongs);
   const [track, setTrack] = useState(null);
-  const debounceRef = useRef(null);
+  const { onDebounce } = useButtonDebounce();
 
   const saveTrack = (song) => {
     setTrack(song);
   };
 
   const onClickPrev = () => {
-    if (debounceRef.current) return;
-    const index = track.index;
-    if (index === 0) return;
-    const newIndex = index - 1;
-    const newTrack = songs.results[newIndex];
-    setTrack({ ...newTrack, index: newIndex });
-
-    debounceRef.current = setTimeout(() => {
-      debounceRef.current = null;
-    }, 300);
+    onDebounce(() => {
+      const index = track.index;
+      if (index === 0) return;
+      const newIndex = index - 1;
+      const newTrack = songs.results[newIndex];
+      setTrack({ ...newTrack, index: newIndex });
+    });
   };
 
   const onNextClick = () => {
-    if (debounceRef.current) return;
-    const index = track.index;
-    const totalSongs = songs.results.length;
-    if (index === totalSongs - 1) return;
-    const newIndex = index + 1;
-    const newTrack = songs.results[newIndex];
-    setTrack({ ...newTrack, index: newIndex });
-
-    debounceRef.current = setTimeout(() => {
-      debounceRef.current = null;
-    }, 300);
+    onDebounce(() => {
+      const index = track.index;
+      const totalSongs = songs.results.length;
+      if (index === totalSongs - 1) return;
+      const newIndex = index + 1;
+      const newTrack = songs.results[newIndex];
+      setTrack({ ...newTrack, index: newIndex });
+    });
   };
 
   return (

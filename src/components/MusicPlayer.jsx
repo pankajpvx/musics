@@ -7,6 +7,7 @@ import PreviousBtnSvg from "../svgs/PreviousSvg";
 import NextBtnSvg from "../svgs/NextbtnSvg";
 import MuteVolumeSvg from "../svgs/MuteVolumeSvg";
 import { FavoriteSvg } from "../svgs/FavouriteSvg";
+import { getText } from "../Utility";
 
 const MusicPlayer = ({ track = null, onClickPrev, onNextClick }) => {
   const trackDuration = track?.duration;
@@ -156,7 +157,7 @@ const MusicPlayer = ({ track = null, onClickPrev, onNextClick }) => {
           <div className="running-time">{runningTrackDuration()}</div>
           <div className="song-name-box">
             <div className="song-name">
-              {track.name} ({track.artist.name})
+              {getText(`${track.name} (${track.artist.name})`)}
             </div>
           </div>
           <div className="fixed-time">{durationValue()}</div>
@@ -171,6 +172,7 @@ const MusicPlayer = ({ track = null, onClickPrev, onNextClick }) => {
           value={songCurrentTime}
           onChange={handleSliderChange}
           className="progress"
+          aria-label="Track Progress"
         />
       </div>
       {track && (

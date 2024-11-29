@@ -4,7 +4,6 @@ export const FavoriteSvg = ({
   className = "",
   onFavouriteClick,
 }) => {
-  console.log(color);
   const hasColor = color !== undefined;
   return (
     <svg
